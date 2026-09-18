@@ -1,1 +1,28 @@
-/* Do everything in this file */
+h2{
+    border-bottom: 1px solid red;
+    clear: both;
+}
+
+figure{
+    float: right;
+    margin:1em;
+    width:40%;   
+
+    img{
+        width: 435px;
+    }
+}
+
+.tet{
+    border: 2px red solid;
+    float: left;
+    width: 40%
+    
+}
+
+footer{
+    position:absolute;
+    top: 20px;
+    left: 500px;
+    z-index: -50;
+}
