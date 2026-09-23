@@ -1,10 +1,6 @@
 figure{
     max-width: 650px;
 
-    img{
-        width: 100%;
-    }
-
 }
 
 header, main, footer{
@@ -19,5 +15,5 @@ header, main, footer{
 
 .tet{
     display:flex;
-    flex: 1 0 450;
+    flex: 1 0 450px;
 }
