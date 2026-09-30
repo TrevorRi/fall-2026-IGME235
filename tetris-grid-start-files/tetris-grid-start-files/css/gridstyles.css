@@ -29,34 +29,34 @@
     text-indent: -999px;
     
     }
-    ul.menu { 
-        grid-area: menu;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex; 
-        flex-wrap: wrap;
+        ul.menu { 
+            grid-area: menu;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; 
+            flex-wrap: wrap;
 
-        }
-    .menu a {
-            display: block;
-            background: gray;
-            padding: 10px;
-            color: white;
-            text-decoration: none;
+            }
+        .menu a {
+                display: block;
+                background: gray;
+                padding: 10px;
+                color: white;
+                text-decoration: none; 
+            }
 
-           
-           
-    }
-     .menu li{
+     .menu li
+            {
                 width: 25%;
             }
 
-            @media screen and (max-width: 550px) {
-	.menu li {
-		width: 100%;
-	}
-}
+            @media screen and (max-width: 550px)
+            {
+                .menu li {
+                    width: 100%;
+	            }   
+            }
     
     .menu a:hover {
             background: red;
