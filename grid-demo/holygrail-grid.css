@@ -41,3 +41,33 @@ nav, aside {
 Grid Formatting  
 *****************/
 
+#wrapper{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 2fr 10fr 2fr 1fr;
+    grid-template-areas: "header"
+                         "navbar" 
+                         "article" 
+                         "sidebar" 
+                         "footer"
+}
+
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: navbar;
+}
+
+article{
+    grid-area: content;
+}
+
+aside{
+    grid-area: sidebar;
+}
+
+footer{
+    grid-area: footer;  
+}
