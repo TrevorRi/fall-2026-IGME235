@@ -19,8 +19,24 @@
 <footer>Copyright &copy; <b>20XX</b></footer>
 <script>
 	"use strict"; 
-    
+    document.querySelector("h1").innerHTML = "My UFO Page";
+	document.querySelector("h2").innerHTML = "My UFO Info";
+
+	document.querySelector('h2:nth-child(2)').innerHTML = "My UFO Pictures";
+	document.querySelector('h2:nth-child(3)').innerHTML = "";
+
+	document.body.style.fontFamily =  "sans-serif";
+	document.body.style.color = "#991d0c";
 	
+
+	let paragraphOne  = document.querySelector("p");
+	paragraphOne.innerHTML = "Report your UFO sightings here: <a href = 'http://www/nuforc/org'></a>";
+
+	paragraphOne.style.color = "green";
+	paragraphOne.style.fontWeight = "bold";
+	paragraphOne.style.fontSize = "2em";
+	paragraphOne.style.textTransform = "uppercase";
+	paragraphOne.style.textShadow = "3px 2px #A44"
 	</script>
 </body>
 </html>
