@@ -22,21 +22,29 @@
     document.querySelector("h1").innerHTML = "My UFO Page";
 	document.querySelector("h2").innerHTML = "My UFO Info";
 
-	document.querySelector('h2:nth-child(2)').innerHTML = "My UFO Pictures";
-	document.querySelector('h2:nth-child(3)').innerHTML = "";
+	document.querySelector('h2:nth-of-type(2)').innerHTML = "My UFO Pictures";
+	document.querySelector('h2:nth-of-type(3)').innerHTML = "";
 
 	document.body.style.fontFamily =  "sans-serif";
 	document.body.style.color = "#991d0c";
 	
 
 	let paragraphOne  = document.querySelector("p");
-	paragraphOne.innerHTML = "Report your UFO sightings here: <a href = 'http://www/nuforc/org'></a>";
+	paragraphOne.innerHTML = "Report your UFO sightings here: <a href = 'http://www.nuforc.org ' > http://www.nuforc.org";
 
 	paragraphOne.style.color = "green";
 	paragraphOne.style.fontWeight = "bold";
 	paragraphOne.style.fontSize = "2em";
 	paragraphOne.style.textTransform = "uppercase";
 	paragraphOne.style.textShadow = "3px 2px #A44"
+
+	document.querySelector("p:nth-of-type(2)").innerHTML = "";
+	document.querySelector("#lastParagraph").innerHTML = "<img src = 'ufo.jpg'>";
+
+
+	let footer = document.querySelector("footer");
+	footer.innerHTML = "&copy Trevor Ringhisen 2025"
+
 	</script>
 </body>
 </html>
