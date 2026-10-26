@@ -30,7 +30,23 @@
 <script>
 "use strict";
 let colors = ["red","green","blue","purple","pink"];
-let foods = []; // add some foods
+let foods = ["borscht", "pierogi", "sausage", "beetroot"]; // add some foods
+
+let colorList = document.querySelector("#colorsList");
+
+for (let i = 0; i < 4; i++){
+	let colorItem = document.createElement("li");
+	colorItem.innerHTML = colors[i];
+	colorList.appendChild(colorItem);
+}
+
+let foodList = document.querySelector("#foodsList");
+
+for (const foodElement of foods){
+	let foodItem = document.createElement("li");
+	foodItem.innerHTML = foodElement;
+	foodList.appendChild(foodItem);
+}
 
 // Optional - can you figure out how to pull both the key AND the value
 // from the `links` object literal?
