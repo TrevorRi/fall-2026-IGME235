@@ -8,51 +8,31 @@
     min-height: 100vh;
 
     grid-template-areas:
-        "nameBox leftTopBar centerTopBar rightTopBar"
+        "nameBox topBar topBar topBar"
         "sideBar mainContent mainContent imageContent"
         "sideBar  mainContent mainContent imageContent"
-        "footerContent  footerContent  footerContent  footerContent";
+        "sideBar  footerContent  footerContent  footerContent";
 }
 
-#nameBox, #leftTopBar, #centerTopBar, #rightTopBar{
-    position: sticky;
-    top:0px;
+#parentBar{
+   /*Create flex box inside of topBar area (done to divide into three sections and responsive)*/
+    grid-area: topBar ;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
-#leftTopBar {
-    padding-top: 5%;
-    grid-area: leftTopBar;
+#topBar{
+     /*Divide topBar into 3 sections, all with center aligned text and 5em gap
+      for high, college and current sections */
+    column-count: 3;
+    column-gap: 2em;
+    column-rule: 10px solid #242038;
     text-align: center;
-    font-size: larger;
+
     font-family: "Fredoka", sans-serif;
-    font-variant-caps:small-caps;
 
-    border-right: 8px solid black;
-
-    background-color: #8D86C9;
-}
-
-#centerTopBar{
-    padding-top: 5%;
-    grid-area: centerTopBar;
-    text-align: center;
-    font-size: larger;
-    font-family: "Fredoka", sans-serif;
-    font-variant-caps:small-caps;
-    border-right: 8px solid black;
-
-    background-color: #0b9bde;
-}
-
-#rightTopBar{
-    padding-top: 5%;
-    grid-area: rightTopBar;
-    text-align: center;
-    font-size: larger;
-    font-family: "Fredoka", sans-serif;
-    font-variant-caps:small-caps;
-
-    background-color: #8D86C9;
 }
 
 #nameBox{
@@ -93,18 +73,13 @@
 }
 
 .projectTitle{
-    font-size: larger;
-    font-weight:bold;
-    margin-left: 50px;
-}
-
-.projectRoles{
     font-size: large;
+    margin-left: 50px;
 }
 
 .projectDesc {
     margin-left: 40px;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
 }
 
 #nameBox{
@@ -113,6 +88,12 @@
     color: #CAC4CE;
     text-decoration-line: underline;
     background-color: #242038;
+}
+
+#topBar{
+    background-color: #8D86C9;
+    font-size: large;
+    font-variant: small-caps;
 }
 
 #mainContent{
@@ -127,7 +108,6 @@
 
 #footerContent{
     background-color: #CAC4CE;
-    padding-left: 80px;
 }
 
 #imageOne{
@@ -138,11 +118,4 @@
 #imageTwo{
     max-width: 350px;
     margin-left: 50px;
-}
-
-#highSchool,#college,#current {
-    text-align: center;
-    text-decoration: underline;
-    font-weight: bolder;
-    margin-top: 60px;
 }
