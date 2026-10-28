@@ -38,7 +38,33 @@
 </div>
 
 <script>
-/* Write your code here! */
+
+let currentColor = "";
+
+let infoBox = document.getElementById("info");
+
+const button = document.getElementById("colorButton");
+
+let radioButtons = document.querySelectorAll("colorGroup");
+
+
+
+button.onclick = function(){
+	for (let i  = 0; i < radioButtons.length; i++)
+	{
+		/*This value no work*/
+		if (radioButtons[i].checked = true)
+		{
+			
+			console.log("Button check worked")
+			currentColor = radioButtons[i].value;
+		}
+	}
+	infoBox.innerHTML = "Your FINAL CHOICE is " + currentColor;
+}
+
+
+
 </script>
 </body>
 </html>
