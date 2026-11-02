@@ -1,0 +1,121 @@
+/* -Start of Grid Structure of Page- */
+#container{
+    display: grid;
+    grid-template-columns: 240px 1fr 1fr 1fr;
+    
+    grid-template-rows: 80px 1fr 1fr 60px;
+    
+    min-height: 100vh;
+
+    grid-template-areas:
+        "nameBox topBar topBar topBar"
+        "sideBar mainContent mainContent imageContent"
+        "sideBar  mainContent mainContent imageContent"
+        "sideBar  footerContent  footerContent  footerContent";
+}
+
+#parentBar{
+   /*Create flex box inside of topBar area (done to divide into three sections and responsive)*/
+    grid-area: topBar ;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#topBar{
+     /*Divide topBar into 3 sections, all with center aligned text and 5em gap
+      for high, college and current sections */
+    column-count: 3;
+    column-gap: 2em;
+    column-rule: 10px solid #242038;
+    text-align: center;
+
+    font-family: "Fredoka", sans-serif;
+
+}
+
+#nameBox{
+    grid-area: nameBox;
+    font-family: "Quicksand", sans-serif;
+}
+
+#sideBar{
+    grid-area: sideBar;
+    font-family: "Quicksand", sans-serif;
+    color: #CAC4CE;
+}
+
+#mainContent{
+   grid-area: mainContent;
+    font-family: "Quicksand", sans-serif;
+
+}
+
+#imageContent{
+    grid-area: imageContent;
+}
+
+#footerContent{
+    grid-area: footerContent;
+}
+
+/* -Start of Stylizing of Page- */
+
+.sideBarItems{
+    /*list style type property found through online research*/
+    font-size: xx-large;
+    list-style-type: none;
+}
+
+.sideBarItems li{
+    margin-bottom: 80px;
+}
+
+.projectTitle{
+    font-size: large;
+    margin-left: 50px;
+}
+
+.projectDesc {
+    margin-left: 40px;
+    margin-bottom: 80px;
+}
+
+#nameBox{
+    font-size: 200%;
+    text-align: left;
+    color: #CAC4CE;
+    text-decoration-line: underline;
+    background-color: #242038;
+}
+
+#topBar{
+    background-color: #8D86C9;
+    font-size: large;
+    font-variant: small-caps;
+}
+
+#mainContent{
+    background-color: #F7ECE1;
+    color: #8D86C9;
+}
+
+#sideBar{
+    background-color: #725AC1;
+    font-variant: small-caps;
+}
+
+#footerContent{
+    background-color: #CAC4CE;
+}
+
+#imageOne{
+    max-width: 200px;
+    margin-left: 100px;
+}
+
+#imageTwo{
+    max-width: 350px;
+    margin-left: 50px;
+}

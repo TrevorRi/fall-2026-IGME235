@@ -1,0 +1,99 @@
+html{
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #73749a;
+}
+
+body{
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+#imageBox{
+    margin-left: 60px;
+    justify-content: center;
+    position: relative;
+    display: inline-block; 
+    width: 80%;   
+}
+
+#titleText{
+    /*Setting up background box for title text, otherwise just use default values*/
+    background-color: #374A67;  
+    padding: 20px;            
+    border: 2px solid black;    
+    border-radius: 8px;       
+    display: inline-block;
+    color: white;
+}
+
+#bgImage{
+    /*Setup image as being block, to allow for scaling image and having fixed position*/
+    width: 100%;
+    height: auto;
+    display: block; 
+    border-radius: 10px;
+    border: 6px solid #374A67;
+}
+
+#quoteTextBox{
+    /*Setup quote as being stuck at center of image (has issues around responsiveness)*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+    color: white;
+}
+
+#generateButton{
+    background-color: #cb9cf2;
+    width: 300px;
+    height: 50px;
+    justify-self: center;
+    border-radius: 8px;
+        color: white;
+}
+
+#generateButton:hover{
+    background-color: #b16dac;
+}
+
+#generateButton:active{
+    background-color: #8e5089;
+}
+
+/*Start of Responsive Design*/
+@media  (max-width: 700px) {
+    body{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        
+    }
+    
+    #quoteText{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+    color: white;
+    }
+}

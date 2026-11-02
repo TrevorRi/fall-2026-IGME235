@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+	<meta charset="utf-8" />
+	<title>Random MisQuote Generator</title>
+    <link rel = "stylesheet" href = "quotePageStyles.css">
+
+    <!--Links for Fonts- from google at https://fonts.google.com/selection?categoryFilters=Feeling:%2FExpressive%2FSophisticated-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div id = titleBox> 
+        <header>
+            <h1 id  = "titleText">Random MisQuote Generator:</h1>
+        </header>
+    </div>
+
+    <div id = "imageBox">
+        <img id = "bgImage" src = "bg1.jpg" alt="Eiffel tower under construction">
+        <div id = "quoteTextBox">
+            <h3 id = "quoteText">This text should be changed upon button press or page load</h3>
+        </div>
+    </div>
+
+    <div id = "buttonBox">
+        <button type= "button" id = "generateButton"> Generate New Quote!</button>
+        <p style = "color: white">&copy; Trevor Ringhisen- 2026</p>
+    </div>
+    
+<script>
+"use strict";
+
+//Declare value for random quotes
+let quoteList = ["\"Et tu, Brutus?\" - Julius Caesar (created by Shakespeare)", 
+"\"Let Them Eat Cake!\" - Marie Antionette (Written by Jean-Jacques Rousseau around 1765-1767, never said by Antionette)",
+"\"Houston, We Have A Problem.\" - Jack Swigert (Originated from the Movie Apollo 13, actually said \"Houston, we've had a problem here\")",
+"\"The definition of Insanity is doing the same thing, over and over again, expecting something to change.\" - Albert Einstein (Originated from a 1981 Narcotics Anonymous Pamphlet)",
+"\"The ends justify the means.\" - Niccolo Machiavelli (Originated with the Roman poet Ovid, never said by Machiavelli)",
+"\"The only two certainties in life are death and taxes.\" - Mark Twain (Similar phrase originated with Christopher Bullock in 1716, never said by Twain)"
+];
+
+//Creating value for storing previous value
+let previousValue;
+
+//Declare function for changing quote
+function displayQuote(){
+    //Choose random value, math.random chooses value between 0 and 1, length allows that value to be up to length of quotelist
+    let randomIndex = Math.floor(Math.random() * quoteList.length);
+    
+    //Loop as long as the random index is equal to the previous value, regenerating the randomindex until it is a new value 
+    while (previousValue == randomIndex){
+        randomIndex = Math.floor(Math.random() * quoteList.length);
+    }
+
+    //Get set the value of currentText to be the new value
+    let currentText = quoteList[randomIndex];
+
+    //Assign new value as previous value, then change text to reflect current value
+    previousValue = randomIndex;
+    document.querySelector("h3").innerHTML = currentText;
+}
+
+//Get the button reference
+let button = document.getElementById("generateButton");
+
+//Add event listener for clicking that just calls displayQuote
+button.addEventListener("click", function(){
+    displayQuote();
+});
+
+//On loading the page, call the display quote method
+window.onload = displayQuote();
+
+</script>
+</body>
+</html>
