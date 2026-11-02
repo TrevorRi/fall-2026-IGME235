@@ -54,25 +54,34 @@ let links = {
 		"New Media Club" : "http://newmediaclub.cias.rit.edu"
 	}
 
-
+//Creating two variables to store the list element and actual list of keys under links
 let linkList = Object.keys(links);
 let linkListText = document.querySelector("#linksList")
 
+//loop through every property in links,
 for (let i = 0; i < 3; i++){
 
-	let linkLink = document.createElement("a");
+	//Create an element to store the anchor for each link
+	let linkAnchor = document.createElement("a");
 
-	//Idea- create new a element, then add a element to 
-	//li, then add li to list
-		
-	//linkLink.href = links.linkList[i];
-	linkLink.textContent = linkList[i];
+	//Create an element for each list item
+	let linkItem = document.createElement("li");
 
+	//Create a variable to store the key currently being checked
+	let currentValue = linkList[i];
 
-	console.log(linkItem.innerHTML)
+	//Make the href of the anchor point to the associated website with 
+	//the current value 	
+	linkAnchor.href = links[currentValue];
 
+	//Change the text of the anchor to be the key currently being checked
+	linkAnchor.textContent = currentValue;
+
+	//Append the anchor to the list item
+	linkItem.appendChild(linkAnchor)
+
+	//Then append the list item to the actual list
 	linkListText.appendChild(linkItem);
-	
 }
 
 </script>
