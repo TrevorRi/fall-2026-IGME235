@@ -39,32 +39,49 @@
 
 <script>
 
+//Create value for current color selected
 let currentColor = "";
 
+//Create value for element of info box
 let infoBox = document.getElementById("info");
 
+//Create constant for the color button 
 const button = document.getElementById("colorButton");
 
-let radioButtons = document.querySelectorAll("colorGroup");
+//Create value for all of the 
+let radioButtons = document.querySelectorAll('input[name="colorGroup"]'	);
 
+//Loop through each radio button
+radioButtons.forEach(function (radio){
+	//Add an event listener for when each button's value changes
+	radio.addEventListener("change", function(e){
 
-//This no work
+		//get the value of the button that was clicked
+		currentColor = e.target.value;
+
+		//Set the text in the info box to be that value
+		infoBox.innerHTML = "You have chosen " + currentColor; 
+	});
+});
+
+//On clicking the color button
 button.onclick = function(){
+	//Go through the list of all radio buttons
 	for (let i  = 0; i < radioButtons.length; i++)
 	{
-		
-		if (radioButtons[i].checked = true)
+		//If any of them is checked (should only be one)
+		if (radioButtons[i].checked == true)
 		{
-			
-			console.log("Button check worked")
+			//Set that value as the currentColor
 			currentColor = radioButtons[i].value;
 		}
 	}
-	infoBox.innerHTML = "Your FINAL CHOICE is " + currentColor;
+	//If currentColor is not null (user has made choice), print that as their final choice
+	if (currentColor != ""){
+		infoBox.innerHTML = "Your FINAL CHOICE is " + currentColor;
+	}
 }
-
-
-
+	
 </script>
 </body>
 </html>
