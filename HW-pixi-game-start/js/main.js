@@ -69,11 +69,22 @@ async function setup() {
     // #4 - Create labels for all 3 scenes
     createLabelsAndButtons();
 
-
     // #5 - Create ship
+    ship = new Ship(assets.spaceship);
+    gameScene.addChild(ship);
 
     // #6 - Load Sounds
+    shootSound = new Howl({
+    src: ["sounds/shoot.wav"],
+    });
 
+    hitSound = new Howl({
+    src: ["sounds/hit.mp3"],
+    });
+
+    fireballSound = new Howl({
+    src: ["sounds/fireball.mp3"],
+    });
     // #7 - Load sprite sheet
 
     // #8 - Start update loop
@@ -130,11 +141,68 @@ function createLabelsAndButtons(){
     startButton.on("pointerover", (e) => (e.target.alpha = 0.7));
     startButton.on("pointerout", (e) => (e.currentTarget.alpha = 1.0));
 
-    startScene.addChild(startButton)
+    startScene.addChild(startButton);
+
+
+    let textStyle = {
+        fill: 0xffffff,
+        fontSize: 18,
+        fontFamily: "Verdana",
+        stroke:{color: 0xff0000, width: 4},
+    };
+
+    scoreLabel = new PIXI.Text({text: "", style: textStyle});
+    scoreLabel.x = 5;
+    scoreLabel.y = 5;
+    gameScene.addChild(scoreLabel);
+    increaseScoreBy(0);
+
+
+    lifeLabel = new PIXI.Text({text: "", style: textStyle});
+    lifeLabel.x = 5;
+    lifeLabel.y = 26;
+    gameScene.addChild(lifeLabel);
+    decreaseLifeBy(0);
+
+
+    let gameOverText = new PIXI.Text({
+        text: "Game Over!\n        :-0",
+        style: {
+            fill: 0xffffff,
+            fontSize: 64,
+            fontFamily: "Verdana",
+            stroke: {color: 0xff0000, width: 6},
+        },
+    });
+
+    gameOverText.x = sceneWidth / 2 - gameOverText.width / 2;
+    gameOverText.y = sceneHeight / 2 - 160;
+    gameOverScene.addChild(gameOverText);
+
+    let playAgainButton = new PIXI.Text({ text: "Play Again?", style: buttonStyle });
+    playAgainButton.x = sceneWidth / 2 - playAgainButton.width / 2;
+    playAgainButton.y = sceneHeight - 100;
+    playAgainButton.eventMode = "static";
+    playAgainButton.cursor = "pointer";
+    playAgainButton.on("pointerup", startGame); // startGame is a function reference
+    playAgainButton.on("pointerover", (e) => (e.target.alpha = 0.7)); // concise arrow function with no brackets
+    playAgainButton.on("pointerout", (e) => (e.currentTarget.alpha = 1.0)); // ditto
+    gameOverScene.addChild(playAgainButton);
 }
 
 function startGame(){
     startScene.visible = false;
     gameOverScene.visible = false;
     gameScene.visible = true;
+}
+
+function increaseScoreBy(value){
+    score += value;
+    scoreLabel.text = `Score:   ${score}`;
+}
+
+function decreaseLifeBy(value){
+    life -= value;
+    life = parseInt(life);
+    lifeLabel.text = `Life:     ${life}%`;
 }
